@@ -17,6 +17,12 @@ async function init()
     buttons[12].addEventListener('click', ctimerend);
     buttons[13].addEventListener('click', ctrace);
     buttons[7].addEventListener('click', cdirxml);
+    buttons[14].addEventListener('click', cthrowerror);
+}
+
+function cthrowerror()
+{
+    throw new Error("Error showcase");
 }
 
 function cdirxml()
