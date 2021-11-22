@@ -22,6 +22,20 @@ async function init()
 
 function cthrowerror()
 {
+    let nullelement = document.getElementById('thisiddoesnotexist');
+    let attempted = nullelement.children;
+    try
+    {
+        let nullelement = document.getElementById('thisiddoesnotexist');
+        let attempted = nullelement.children;
+    }
+    catch(e)
+    {
+        if(e instanceof TypeError)
+        {
+            console.log('Expected type error, got type error');
+        }
+    }
     throw new Error("Error showcase");
 }
 
