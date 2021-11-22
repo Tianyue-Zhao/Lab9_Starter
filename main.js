@@ -94,6 +94,9 @@ function cassert()
     let button2 = buttons[5];
     let reason = 'Assert showcase';
     console.assert(button1 == button2, {button1, button2, reason});
+    button1 = "";
+    button2 = " ";
+    console.assert(button1 == button2, {button1, button2, reason});
 }
 
 function clog()
