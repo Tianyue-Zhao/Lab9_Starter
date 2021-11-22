@@ -18,6 +18,13 @@ async function init()
     buttons[13].addEventListener('click', ctrace);
     buttons[7].addEventListener('click', cdirxml);
     buttons[14].addEventListener('click', cthrowerror);
+    window.onerror = errorHandler;
+}
+
+function errorHandler(errorEvent)
+{
+    console.log('yay an error occurred');
+    return true;
 }
 
 function cthrowerror()

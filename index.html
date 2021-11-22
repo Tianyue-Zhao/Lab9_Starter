@@ -90,6 +90,15 @@
   </main>
 
   <script>
+    class NotSyntaxError extends Error
+    {
+      constructor(message)
+      {
+        super(message);
+        this.name='NotASyntaxError';
+      }
+    }
+
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
       e.preventDefault();
@@ -97,7 +106,22 @@
       let firstNum = document.querySelector('#first-num').value;
       let secondNum = document.querySelector('#second-num').value;
       let operator = document.querySelector('#operator').value;
-      output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      try
+      {
+        output.innerHTML = eval(`${firstNum} ${operator} ${secondNum}`);
+      }
+      catch(e)
+      {
+        if(e instanceof SyntaxError)
+        {
+          console.log('Incorrect entry of numbers');
+        }
+        else
+        {
+          // Not at all polite
+          throw new NotSyntaxError('Something else went wrong');
+        }
+      }
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
